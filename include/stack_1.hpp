@@ -7,7 +7,7 @@
 #include <iostream>
 
 template <typename T>
-class Stack
+class Stack_1
 {
 public:
     size_t GetSize()const{return stack_size;}
