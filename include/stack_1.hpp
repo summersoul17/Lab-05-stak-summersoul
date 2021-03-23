@@ -44,7 +44,7 @@ private:
         Container* pointer;
         T data = T();
 
-        Container(T data_ = T(), Container* poineter_ = nullptr){
+        explicit Container(T data_ = T(), Container* poineter_ = nullptr){
             pointer = poineter_;
             data = data_;
         }

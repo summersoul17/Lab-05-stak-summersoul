@@ -1,7 +1,7 @@
 // Copyright 2021 summersoul17 <17summersoul17@gmail.com>
 
-#ifndef INCLUDE_STACK_2_HPP
-#define INCLUDE_STACK_2_HPP
+#ifndef INCLUDE_STACK_2_HPP_
+#define INCLUDE_STACK_2_HPP_
 
 #include <string>
 #include <iostream>
@@ -61,4 +61,4 @@ public:
     Stack_2 operator=(const Stack_2&) = delete;
 };
 
-#endif //INCLUDE_STACK_2_HPP
+#endif //INCLUDE_STACK_2_HPP_
