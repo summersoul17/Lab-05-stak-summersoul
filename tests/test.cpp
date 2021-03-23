@@ -8,7 +8,7 @@ const int a = 10, b = 20, c = 30;
 
 TEST(Stack_1_Test, Push_Test) {
     Stack_1<int> temp_stack;
-    temp_stack.push(10);
+    temp_stack.push(a);
     temp_stack.push(b);
     temp_stack.push(c);
     EXPECT_EQ(temp_stack.GetSize(), 3);
@@ -17,7 +17,7 @@ TEST(Stack_1_Test, Push_Test) {
 
 TEST(Stack_1_Test, Pop_Test) {
     Stack_1<int> temp_stack;
-    temp_stack.push(10);
+    temp_stack.push(a);
     temp_stack.push(b);
     temp_stack.push(c);
     temp_stack.pop();
