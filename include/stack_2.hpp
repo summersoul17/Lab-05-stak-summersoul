@@ -59,6 +59,11 @@ public:
     Stack_2(){header = nullptr;}
     Stack_2(const Stack_2& value) = delete;
     Stack_2 operator=(const Stack_2&) = delete;
+    ~Stack_2(){
+        while(header){
+            pop();
+        }
+    }
 };
 
 #endif //INCLUDE_STACK_2_HPP_
