@@ -1,10 +1,11 @@
 // Copyright 2021 summersoul17 <17summersoul17@gmail.com>
 
-#ifndef INCLUDE_HEADER_HPP_
-#define INCLUDE_HEADER_HPP_
+#ifndef INCLUDE_STACK_1_HPP_
+#define INCLUDE_STACK_1_HPP_
 
 #include <string>
 #include <iostream>
+#include <utility>
 
 template <typename T>
 class Stack_1
@@ -16,7 +17,7 @@ public:
         Container* temp = new Container(std::move(value), header);
         header = temp;
         ++stack_size;
-    };
+    }
 
     void push(const T& value){
         Container* temp = new Container(value, header);
@@ -29,9 +30,13 @@ public:
         delete header;
         header = temp;
         --stack_size;
-    };
+    }
 
-    const T& head() const{return header->data;};
+    const T& head() const{return header->data;}
+
+    Stack_1(){header = nullptr;}
+    Stack_1(const Stack_1& value) = delete;
+    Stack_1 operator=(const Stack_1&) = delete;
 
 private:
     class Container{
@@ -43,7 +48,7 @@ private:
             pointer = poineter_;
             data = data_;
         }
-        Container(Container* header_){
+        explicit Container(Container* header_){
             pointer = header_->pointer;
             data = header_->pointer->data;
         }
@@ -55,4 +60,4 @@ private:
 
 
 
-#endif // INCLUDE_HEADER_HPP_
+#endif // INCLUDE_STACK_1_HPP_

@@ -1,10 +1,11 @@
 // Copyright 2021 summersoul17 <17summersoul17@gmail.com>
 
-#ifndef TEMPLATE_STACK_2_HPP
-#define TEMPLATE_STACK_2_HPP
+#ifndef INCLUDE_STACK_2_HPP
+#define INCLUDE_STACK_2_HPP
 
 #include <string>
 #include <iostream>
+#include <utility>
 
 template <typename T>
 class Stack_2
@@ -15,7 +16,7 @@ public:
         Container* pointer;
         T data;
 
-        Container(Container* header_){
+        explicit Container(Container* header_){
             pointer = header_->pointer;
             data = header_->pointer->data;
         }
@@ -24,7 +25,6 @@ public:
             pointer = pointer_;
             data = data_;
         }
-
     };
     Container* header;
     size_t stack_size = 0;
@@ -34,7 +34,7 @@ public:
     template <typename ... Args>
     void push_emplace(Args&&... value){
         T typeT = T(std::forward<Args>(value)...);
-        Container* temp = new Container(header,typeT);
+        Container* temp = new Container(header, typeT);
         header = temp;
         ++stack_size;
     }
@@ -43,7 +43,7 @@ public:
         Container* temp = new Container(header, std::move(value));
         header = temp;
         ++stack_size;
-    };
+    }
 
     const T& head() const{return header->data;}
 
@@ -55,6 +55,10 @@ public:
         --stack_size;
         return temp_data;
     }
+
+    Stack_2(){header = nullptr;}
+    Stack_2(const Stack_2& value) = delete;
+    Stack_2 operator=(const Stack_2&) = delete;
 };
 
-#endif //TEMPLATE_STACK_2_HPP
+#endif //INCLUDE_STACK_2_HPP
