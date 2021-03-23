@@ -38,7 +38,7 @@ public:
     Stack_1(const Stack_1& value) = delete;
     Stack_1 operator=(const Stack_1&) = delete;
     ~Stack_1(){
-        while(header){
+        while (header){
             pop();
         }
     }
